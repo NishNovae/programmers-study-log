@@ -1,8 +1,7 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/92345
-#
+# 2022 KAKAO BLIND RECRUITMENT
 # 사라지는 발판
 #
-
 
 
 # reach leaf then recursively send up what "was" the best move -> postorder dfs
