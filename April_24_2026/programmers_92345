@@ -1,0 +1,57 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/92345
+#
+# 사라지는 발판
+#
+
+
+
+# reach leaf then recursively send up what "was" the best move -> postorder dfs
+
+DIRECTIONS = [[1, 0], [-1, 0], [0, 1], [0, -1]]
+
+
+def solution(board, aloc, bloc):
+    row, col = len(board), len(board[0])
+
+    def dfs(player, opp, board): #-> tuple[bool, int]:
+        py, px = player
+
+        if board[py][px] == 0:
+            return False, 0
+
+        has_moved = False
+        can_win = False
+        win_turn = row * col
+        lose_turn = 0
+
+        for dy, dx in DIRECTIONS:
+            ny, nx = py+dy, px+dx
+
+            if not (0 <= ny < row and 0 <= nx < col):
+                continue    # out of board!
+
+            if board[ny][nx] == 0:
+                continue    # no floor!
+
+            has_moved = True
+            # move board
+            board[py][px] = 0
+            opp_win, turn = dfs(opp, [ny, nx], board)
+            board[py][px] = 1
+            # return board
+
+            if not opp_win:
+                can_win = True
+                win_turn = min(win_turn, turn+1)
+            else:
+                lose_turn = max(lose_turn, turn+1)
+
+        if not has_moved:
+            return False, 0     # end of branch
+
+        if can_win:
+            return True, win_turn
+        else:
+            return False, lose_turn
+
+    return dfs(aloc, bloc, board)[1]
