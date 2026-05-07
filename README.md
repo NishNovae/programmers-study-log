@@ -1,6 +1,6 @@
 # programmers-study-log
 ## Basic
-- 시간복잡도
+### 시간복잡도
 - `n <= 100` → O(n³)도 가능할 수 있음
 - `n <= 1,000` → O(n²) 가능
 - `n <= 100,000` → O(n log n) 또는 O(n)
