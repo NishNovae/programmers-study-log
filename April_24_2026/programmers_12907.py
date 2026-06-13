@@ -1,4 +1,4 @@
-# https://school.programmers.co.kr/learn/courses/30/lessons/12927
+# https://school.programmers.co.kr/learn/courses/30/lessons/12907
 # 연습문제
 # 거스름돈
 #
